@@ -1,4 +1,4 @@
-#include "cpt.cpp";
+#include "header.hpp"
 
 template <typename C, typename D>
 C max_flow(Graph<C, D> &g, int s, int t) {

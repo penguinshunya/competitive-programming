@@ -31,7 +31,6 @@ template <typename T> void amin(T &x, T y) { x = min(x, y); }
 template <typename T> T exp(T x, i64 n, T e = 1) { T r = e; while (n > 0) { if (n & 1) r *= x; x *= x; n >>= 1; } return r; }
 template <typename T> istream& operator>>(istream &is, vector<T> &v) { for (auto &x : v) is >> x; return is; }
 template <typename T> ostream& operator<<(ostream &os, vector<T> &v) { rep(i, v.size()) { if (i) os << ' '; os << v[i]; } return os; }
-void solve(); int main() { ios::sync_with_stdio(0); cin.tie(0); cout << fixed << setprecision(16); solve(); return 0; }
 
 template <typename T, typename U>
 vector<U> make_vector(T&& n, U&& val) {
@@ -45,7 +44,3 @@ decltype(auto) make_vector(T&& n, Args&&... args) {
 const int INF = 1001001001;
 const int dx[] = {1, 0, -1, 0};
 const int dy[] = {0, 1, 0, -1};
-
-void solve() {
-  /* $0 */
-}

@@ -1,4 +1,4 @@
-#include "cpt.cpp";
+#include "header.hpp"
 
 struct RollingHash {
   const int h = 1000000007;

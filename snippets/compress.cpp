@@ -1,4 +1,4 @@
-#include "cpt.cpp"
+#include "header.hpp"
 
 template <typename T>
 struct Compress {

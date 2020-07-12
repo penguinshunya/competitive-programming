@@ -1,4 +1,4 @@
-#include "cpt.cpp"
+#include "header.hpp"
 
 struct Prime {
   int n;
@@ -23,3 +23,7 @@ struct Prime {
     return so;
   }
 };
+
+void test() {
+  assert(true);
+}

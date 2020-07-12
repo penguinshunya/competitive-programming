@@ -1,4 +1,4 @@
-#include "cpt.cpp"
+#include "header.hpp"
 
 long long gcd(long long a, long long b) {
   if (min(a, b) == 0) {

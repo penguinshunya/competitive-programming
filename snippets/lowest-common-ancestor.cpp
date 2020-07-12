@@ -1,4 +1,4 @@
-#include "cpt.cpp";
+#include "header.hpp"
 
 struct LowestCommonAncestor {
   vector<vector<int>> g;
