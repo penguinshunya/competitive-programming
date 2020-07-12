@@ -32,20 +32,21 @@ def make_template():
   return content    
 
 def execute_test(file):
-  main_file = file.replace(".hpp", ".test.cpp")
-  if not os.path.exists(main_file):
+  path = os.path.dirname(file)
+  main_file = os.path.basename(file).replace(".hpp", ".test.cpp")
+  if not os.path.exists(os.path.join(path, main_file)):
     print("skip the test in {0}".format(file))
     return
   exec_file = str(uuid.uuid4())
   try:
-    subprocess.run([CXX, main_file, "-o", exec_file], check=True)
-    subprocess.run(["./" + exec_file], check=True)
+    subprocess.run([CXX, main_file, "-o", exec_file], cwd=path, check=True)
+    subprocess.run(["./" + exec_file], cwd=path, check=True)
     print("passed the test in {0}".format(file))
   except Exception as e:
     print("failed the test in {0}".format(file))
     raise e
   finally:
-    os.remove(exec_file)
+    os.remove(os.path.join(path, exec_file))
 
 def delete_unnecessary_information(text):
   text = re.sub(r"#include \".+?\"", "", text)
