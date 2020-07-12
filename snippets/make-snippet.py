@@ -6,7 +6,8 @@ import subprocess
 import uuid
 
 CXX = "g++-9"
-SNIPPET_DIRECTORY = "./snippets/"
+SNIPPET_DIRECTORY = "./"
+SNIPPET_FILE_PATTERN = "*.hpp"
 HEADER_FILE = "header.hpp"
 
 def execute_test(file):
@@ -67,7 +68,8 @@ def delete_unnecessary_information(text):
 output = {}
 output["cpt"] = make_template()
 
-for file in glob.glob(os.path.join(SNIPPET_DIRECTORY, "*.cpp")):
+for file in glob.glob(os.path.join(SNIPPET_DIRECTORY, "*", SNIPPET_FILE_PATTERN)):
+  print(file)
   execute_test(file)
   name = os.path.splitext(os.path.basename(file))[0]
   body = []

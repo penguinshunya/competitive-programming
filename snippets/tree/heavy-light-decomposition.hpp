@@ -1,4 +1,4 @@
-#include "header.hpp"
+#include "../header.hpp"
 
 struct HeavyLightDecomposition {
   vector<vector<int>> g;
