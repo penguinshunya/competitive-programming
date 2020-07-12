@@ -59,7 +59,7 @@ def make_template():
   return content    
 
 def delete_unnecessary_information(text):
-  text = text.replace('#include "{0}"'.format(HEADER_FILE), '')
+  text = re.sub(r"#include \".+?\"", "", text)
   text = re.sub(r"void test\(\) \{[^}]+\}", "", text)
   text = text.strip()
   return text

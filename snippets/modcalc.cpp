@@ -1,4 +1,5 @@
 #include "header.hpp"
+#include "modint.cpp"
 
 template <typename T>
 struct ModCalc {
