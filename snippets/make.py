@@ -11,32 +11,22 @@ SNIPPET_FILE_PATTERN = "*.hpp"
 HEADER_FILE = "header.hpp"
 
 def execute_test(file):
-  with open(file, "r") as f:
-    text = f.read()
-    if "void test" not in text:
-      return
-  content = [
-    '#include "{0}"'.format(file),
-    "int main() {",
-    "  test();",
-    "  return 0;",
-    "}",
-  ]
-  text = "\n".join(content)
-  main_file = str(uuid.uuid4()) + ".cpp"
+  main_file = file.replace(".hpp", ".test.cpp")
+  if not os.path.exists(main_file):
+    print("skip the test in {0}".format(file))
+    return
   exec_file = str(uuid.uuid4())
-  with open(main_file, "w") as f:
-    f.write(text)
   try:
     subprocess.run([CXX, main_file, "-o", exec_file], check=True)
     subprocess.run(["./" + exec_file], check=True)
     print("passed the test in {0}".format(file))
   except Exception as e:
     print("failed the test in {0}".format(file))
+    if os.path.exists("cpp.json"):
+      os.remove("cpp.json")
     raise e
   finally:
-    for file in [main_file, exec_file]:
-      os.remove(file)
+    os.remove(exec_file)
 
 def make_template():
   body = []
@@ -61,7 +51,6 @@ def make_template():
 
 def delete_unnecessary_information(text):
   text = re.sub(r"#include \".+?\"", "", text)
-  text = re.sub(r"void test\(\) \{[^}]+\}", "", text)
   text = text.strip()
   return text
 
@@ -69,7 +58,6 @@ output = {}
 output["cpt"] = make_template()
 
 for file in glob.glob(os.path.join(SNIPPET_DIRECTORY, "*", SNIPPET_FILE_PATTERN)):
-  print(file)
   execute_test(file)
   name = os.path.splitext(os.path.basename(file))[0]
   body = []
