@@ -1,4 +1,4 @@
-#include "../header.hpp"
+#include "../template.hpp"
 
 struct Vec2 {
   double x, y;

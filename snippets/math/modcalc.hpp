@@ -1,4 +1,4 @@
-#include "../header.hpp"
+#include "../template.hpp"
 #include "modint.cpp"
 
 template <typename T>
