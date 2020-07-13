@@ -46,12 +46,11 @@ const int dx[] = {1, 0, -1, 0};
 const int dy[] = {0, 1, 0, -1};
 
 void solve() {
-  int n, I;
-  cin >> n >> I;
-  vi32 a(n);
-  cin >> a;
-  int i = 8 * I / n;
-  cout << (1 << 30) << endl;
+  int n, k;
+  cin >> n >> k;
+  vector<vi32> ans(n, vi32(n));
+  rep(i, n) ans[i][i] = k;
+  rep(i, n) cout << ans[i] << endl;
 }
 
 int main() {
