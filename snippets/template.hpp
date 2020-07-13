@@ -22,8 +22,6 @@ using vi64 = vector<i64>;
 using vf80 = vector<f80>;
 using vstr = vector<string>;
 
-void yes() { cout << "Yes" << endl; exit(0); }
-void no() { cout << "No" << endl; exit(0); }
 template <typename T> class pqasc : public priority_queue<T, vector<T>, greater<T>> {};
 template <typename T> class pqdesc : public priority_queue<T, vector<T>, less<T>> {};
 template <typename T> void amax(T &x, T y) { x = max(x, y); }
