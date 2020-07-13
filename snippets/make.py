@@ -8,25 +8,29 @@ import uuid
 CXX = "g++-9"
 SNIPPET_DIRECTORY = "./"
 SNIPPET_FILE_PATTERN = "*.hpp"
-HEADER_FILE = "template.hpp"
+TEMPLATE_FILE = "template.hpp"
 
 def remove_extension(file):
   return os.path.splitext(os.path.basename(file))[0]
 
 def make_template(prefix):
   body = []
-  with open(os.path.join(SNIPPET_DIRECTORY, HEADER_FILE), "r") as f:
+  with open(os.path.join(SNIPPET_DIRECTORY, TEMPLATE_FILE), "r") as f:
     text = f.read()
     body = text.split("\n")
   body.extend([
+    "void solve() {",
+    "  $0",
+    "}",
+    "",
     "int main() {",
     "  ios::sync_with_stdio(0);",
     "  cin.tie(0);",
-    "  cout << fixed << setprecision(12);",
-    "  cerr << fixed << setprecision(12);",
-    "  $0",
+    "  cout << fixed << setprecision(16);",
+    "  cerr << fixed << setprecision(16);",
+    "  solve();",
     "  return 0;",
-    "}",
+    "}"
   ])
   content = {
     "prefix": prefix,
