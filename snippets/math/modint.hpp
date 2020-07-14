@@ -1,3 +1,5 @@
+#include "../template.hpp"
+
 template <int mod>
 struct ModInt {
   int x;
@@ -16,6 +18,8 @@ struct ModInt {
     op(+, +=) op(-, -=) op(*, *=) op(/, /=)
   #undef op
   friend ostream& operator<<(ostream &os, ModInt m) { return os << m.x; }
+  bool operator==(const ModInt& that) { return x == that.x; }
+  bool operator!=(const ModInt& that) { return x != that.x; }
 };
 
 using mint = ModInt<1000000007>;

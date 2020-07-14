@@ -1,3 +1,5 @@
+#ifndef TEMPLATE_HPP
+#define TEMPLATE_HPP
 #include <bits/stdc++.h>
 
 #define rep(i, n) for (int i = 0; i < int(n); i++)
@@ -42,3 +44,4 @@ decltype(auto) make_vector(T&& n, Args&&... args) {
 const int INF = 1001001001;
 const int dx[] = {1, 0, -1, 0};
 const int dy[] = {0, 1, 0, -1};
+#endif
