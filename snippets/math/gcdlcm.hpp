@@ -1,6 +1,7 @@
 #include "../template.hpp"
 
-long long gcd(long long a, long long b) {
+template <typename T>
+T gcd(T a, T b) {
   if (min(a, b) == 0) {
     return max(a, b);
   }
@@ -11,7 +12,8 @@ long long gcd(long long a, long long b) {
   }
 }
 
-long long lcm(long long a, long long b) {
+template <typename T>
+T lcm(T a, T b) {
   if (min(a, b) == 0) {
     return max(a, b);
   }
