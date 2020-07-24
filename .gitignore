@@ -1,5 +1,3 @@
 .vscode/
 a.out
-test/input.txt
-test/main.cpp
-test/output.txt
+test/*
