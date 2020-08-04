@@ -5,6 +5,9 @@
 * https://ideone.com/yHninE 列挙
 * https://ideone.com/ATAjKL マインスイーパー
 * https://ideone.com/EXb1p8 オセロ
+* https://ideone.com/m3XV6W オートマトン
+* https://ideone.com/vMywEd NFA から DFA への変換
+* https://ideone.com/ryTEvT N ビットに文字列 S が含まれないものの個数
 
 #### 証明1
 
